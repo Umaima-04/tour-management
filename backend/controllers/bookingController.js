@@ -35,7 +35,7 @@ export const getBooking=async(req,res)=>{
 }
 
 //get all booking
-export const geAlltBooking=async(req,res)=>{
+export const getAllBooking=async(req,res)=>{
     
     try{
          const books=await Booking.find();

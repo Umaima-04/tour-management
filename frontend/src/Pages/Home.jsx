@@ -16,6 +16,7 @@ import MasonryImagesGallery from '../components/image-gallery/MasonryImagesGalle
 import Testimonials from '../components/Testimonial/Testimonials';
 import Newsletter from '../shared/Newsletter';
 
+import Weather from '../components/Weather/Weather';
 
 
 
@@ -55,6 +56,7 @@ const Home = () => {
         </Row>
       </Container>
     </section>
+    <Weather/>
    {/*========here section end========= */}
    <section>
     <Container>

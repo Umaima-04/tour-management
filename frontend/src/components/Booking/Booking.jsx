@@ -6,12 +6,12 @@ import {useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/config';
 
+
+
 const Booking = ({tour,avgRating}) => {
     const {price,reviews,title}=tour;
     const navigate=useNavigate();
-
-    const {user}= useContext(AuthContext)
-
+    const {user}= useContext(AuthContext);
 
     const [booking,setBooking]=useState({
     userId:user && user._id,
@@ -22,6 +22,7 @@ const Booking = ({tour,avgRating}) => {
     guestSize:1,
     bookAt:"",
   });
+
     const handleChange=e=>{
       setBooking(prev=>({...prev,[e.target.id]:e.target.value}));
 
@@ -32,12 +33,12 @@ const Booking = ({tour,avgRating}) => {
 
     const handleClick=async (e)=>{
       e.preventDefault();
-      console.log(booking);
-
       try {
+        
         if(!user || user===undefined || user===null){
           return alert('Please sign in')
         }
+
         const res = await fetch(`${BASE_URL}/booking`,{
           method:'post',
           headers:{
@@ -50,7 +51,10 @@ const Booking = ({tour,avgRating}) => {
         if(!res.ok){
           return alert(result.message);
         }
+
+        alert("Tour booked successfully!");
         navigate('/thank-you');
+        
       } catch (err) {
         alert(err.message);
       }
